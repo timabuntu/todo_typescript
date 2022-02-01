@@ -7,7 +7,7 @@ const App: React.FC = () => {
       <div className="flex items-center justify-center h-48 bg-blue-700">
         <Header />
       </div>
-      <div className="container mx-auto -mt-16 bg-white shadow-sm p-14 sm:rounded-lg">
+      <div className="container p-4 pt-8 mx-auto -mt-16 bg-white shadow-sm sm:rounded-lg">
         <TaskList />
       </div>
     </div>
