@@ -1,4 +1,5 @@
-import { FiTrash, FiCheckSquare } from "react-icons/fi";
+import { FiCheckSquare } from "react-icons/fi";
+import Task from "../Task";
 const TaskList: React.FC = () => {
   return (
     <section>
@@ -22,15 +23,9 @@ const TaskList: React.FC = () => {
       </header>
       <main className="mt-4">
         <ul>
-          <li className="flex justify-between pb-4 mt-1 border-b-2 border-gray-100">
-            <label>
-              <input type="checkbox" />
-              <span className="ml-2 text-gray-600">Comprar Pão</span>
-            </label>
-            <button>
-              <FiTrash size={14} color={"#ef5350"} />
-            </button>
-          </li>
+          <Task/>
+          <Task/>
+          <Task/>
         </ul>
       </main>
     </section>
