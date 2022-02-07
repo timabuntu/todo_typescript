@@ -25,6 +25,12 @@ const TaskList: React.FC = () => {
     setTaskTitle("");
   };
 
+  const handleRemoveTask = (id: number) => {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+
+    setTasks(filteredTasks);
+  };
+
   return (
     <section>
       <header className="flex flex-col justify-between sm:flex-row">
@@ -60,7 +66,7 @@ const TaskList: React.FC = () => {
                 <input type="checkbox" />
                 <span className="ml-2 text-gray-600">{task.title}</span>
               </label>
-              <button type="button">
+              <button type="button" onClick={() => handleRemoveTask(task.id)}>
                 <FiTrash size={14} color={"#ef5350"} />
               </button>
             </li>
