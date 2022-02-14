@@ -31,6 +31,17 @@ const TaskList: React.FC = () => {
     setTasks(filteredTasks);
   };
 
+  const handleToggleTaskCompletion = (id: number) => {
+
+    const newTaskToggle = tasks.map(task => task.id === id ? {
+      ...task,
+      isComplete: !task.isComplete
+    } : task)
+
+    setTasks(newTaskToggle)
+
+  }
+
   return (
     <section>
       <header className="flex flex-col justify-between sm:flex-row">
@@ -63,8 +74,16 @@ const TaskList: React.FC = () => {
               className="flex justify-between pb-4 mt-1 border-b-2 border-gray-100"
             >
               <label>
-                <input type="checkbox" />
-                <span className="ml-2 text-gray-600">{task.title}</span>
+                <input type="checkbox" readOnly checked={task.isComplete} onClick={()=>handleToggleTaskCompletion(task.id)} />
+                <span
+                  className={
+                    task.isComplete
+                      ? "line-through ml-2 text-gray-400"
+                      : "ml-2 text-gray-600"
+                  }
+                >
+                  {task.title}
+                </span>
               </label>
               <button type="button" onClick={() => handleRemoveTask(task.id)}>
                 <FiTrash size={14} color={"#ef5350"} />
